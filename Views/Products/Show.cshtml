@@ -1,0 +1,29 @@
+﻿@model IEnumerable<CrudCreateDummy1.Models.Products>
+@{
+    ViewData["Title"] = "Index1";
+}
+
+<h1>Index1</h1>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Action</th>
+    </tr>
+    @foreach(var p in Model)
+    {
+        <tr>
+            <td>@p.Id</td>
+            <td>@p.Name</td>
+            <td>@p.Price</td>
+            <td>@p.Quantity</td>
+            <td>
+                <a class="btn btn-info btn-group" asp-action="Update" asp-controller="Products" asp-route-id="@p.Id">Update</a>
+                <a class="btn btn-danger btn-group" asp-controller="Products" asp-action="Delete" asp-route-id="@p.Id">Remove</a>
+            </td>
+        </tr>
+    }
+</table>
